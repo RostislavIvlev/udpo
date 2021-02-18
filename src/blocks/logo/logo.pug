@@ -1,0 +1,13 @@
+mixin logo(href, mods)
+  -
+    if (typeof (options) === "undefined") {
+        var options = {}
+    }
+    var allMods = "";
+    if (typeof(options) !== "undefined" && options.mods) {
+        var modList = options.mods.split(",");
+        for (var i = 0; i < modList.length; i++) {
+            allMods = allMods + " logo_" + modList[i].trim()
+        }
+    }
+  a.logo(class=allMods, href=href)&attributes(attributes)

@@ -1,0 +1,30 @@
+@mixin size($width, $height: $width) {
+    width: $width;
+    height: $height;
+}
+
+@mixin fontSettings($fontFamily, $fontSize, $lineHeight, $fontColor) {
+    font-family: $fontFamily;
+    font-size: $fontSize;
+    line-height: $lineHeight;
+    color: $fontColor;
+}
+
+@mixin text-gradient($dir, $from, $to) {
+    background: -webkit-linear-gradient($dir, $from, $to);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+@mixin border-gradient($dir, $from, $to, $width) {
+    border-left: $width solid $from;
+    border-right: $width solid $to;
+    background-image:
+      // Needed for both the top and bottom borders
+      -webkit-linear-gradient($dir, $from, $to),
+      -webkit-linear-gradient($dir, $from, $to);
+    background-size: 100% $width;
+    background-position: 0 100%, 0 0;
+    background-repeat: no-repeat;
+    background-clip: border-box;
+}
